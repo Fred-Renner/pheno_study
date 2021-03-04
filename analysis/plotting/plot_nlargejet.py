@@ -13,7 +13,7 @@ One specifies the samples to be plotted at the top of calc_selections() function
 import ROOT
 ROOT.PyConfig.IgnoreCommandLineOptions = True
 ROOT.gROOT.SetBatch(1)
-from ROOT import *
+
 import time 
 from math import sqrt
 from random import gauss
@@ -38,7 +38,7 @@ ENERGY_status = '14 TeV'
 #TOPPATH = '/home/jesseliu/pheno/fcc/data/samples/14TeV/2018aug11'
 #TOPPATH = '/home/jesseliu/pheno/fcc/PhenoSim/data/samples/14TeV/2018sep13/all_merged_delphes'
 #TOPPATH = '/home/jesseliu/pheno/fcc/PhenoSim/data/samples/14TeV/2018nov26/all_merged_delphes/ntuples'
-TOPPATH = '/home/jesseliu/pheno/fcc/PhenoSim/data/samples/14TeV/2019mar18/all_merged_delphes/ntuples'
+TOPPATH = '/lustre/fs22/group/atlas/arelycg/Pheno/Oxford_samples/ntuples/'
 #TOPPATH = '/home/jesseliu/pheno/fcc/PhenoSim/data/hh4b/analysis_code/pheno_study/analysis/intermediate/output'
 #/data/atlas/atlasdata/jesseliu/pheno/packages/fcc/madanalysis5/ntupMkr/Build'
 BKGPATH = TOPPATH
@@ -1034,7 +1034,7 @@ def mkdir(dirPath):
   '''
   try:
     os.makedirs(dirPath)
-    print 'Successfully made new directory ' + dirPath
+    print ('Successfully made new directory ' + dirPath)
   except OSError:
     pass
  

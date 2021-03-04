@@ -17,7 +17,7 @@ from ROOT import *
 from variables import *
 from math      import sqrt
 
-TOPPATH = '/afs/ifh.de/user/f/freder/apps/pheno_study/analysis/plotting/lhe/ntuples_100k'
+TOPPATH = '/home/jesseliu/pheno/fcc/PhenoSim/analyse/conventional/hh4b/lhe_analyse/ntuples'
 
 normalise_unity = True
 fix_TOPYUK = True
@@ -88,21 +88,22 @@ def main():
   if fix_TOPYUK:
  
     l_filename_sigs = [
-    #'MG5_LHEonly_14TeV_pp2hh_HeavyHiggsTHDM_TopYuk_1.0_SlfCoup_m5.0', 
-    #'MG5_LHEonly_14TeV_pp2hh_HeavyHiggsTHDM_TopYuk_1.0_SlfCoup_m2.0', 
-    #'MG5_LHEonly_14TeV_pp2hh_HeavyHiggsTHDM_TopYuk_1.0_SlfCoup_m0.5', 
-    #'MG5_LHEonly_14TeV_pp2hh_HeavyHiggsTHDM_TopYuk_1.0_SlfCoup_5.0', 
-    #'MG5_LHEonly_14TeV_pp2hh_HeavyHiggsTHDM_TopYuk_1.0_SlfCoup_7.0', 
-    #'MG5_LHEonly_14TeV_pp2hh_HeavyHiggsTHDM_TopYuk_1.0_SlfCoup_10.0', 
-
-    'MG5_LHEonly_14TeV_pp2hh_HeavyHiggsTHDM_TopYuk_1.0_SlfCoup_1.0' , 
-    'MG5_LHEonly_14TeV_pp2hh_HeavyHiggsTHDM_TopYuk_1.0_SlfCoup_2.0', 
-    'MG5_LHEonly_14TeV_pp2hh_HeavyHiggsTHDM_TopYuk_1.0_SlfCoup_2.5', 
-    'MG5_LHEonly_14TeV_pp2hh_HeavyHiggsTHDM_TopYuk_1.0_SlfCoup_3.0', 
-    'MG5_LHEonly_14TeV_pp2hh_HeavyHiggsTHDM_TopYuk_1.0_SlfCoup_4.0', 
+      'MG5_LHEonly_14TeV_pp2hh_HeavyHiggsTHDM_TopYuk_1.0_SlfCoup_m5.0',
+      'MG5_LHEonly_14TeV_pp2hh_HeavyHiggsTHDM_TopYuk_1.0_SlfCoup_m2.0',
+      'MG5_LHEonly_14TeV_pp2hh_HeavyHiggsTHDM_TopYuk_1.0_SlfCoup_m0.5',
+      'MG5_LHEonly_14TeV_pp2hh_HeavyHiggsTHDM_TopYuk_1.0_SlfCoup_5.0',
+      'MG5_LHEonly_14TeV_pp2hh_HeavyHiggsTHDM_TopYuk_1.0_SlfCoup_7.0',
+      'MG5_LHEonly_14TeV_pp2hh_HeavyHiggsTHDM_TopYuk_1.0_SlfCoup_10.0',
     ] 
     
-    
+    l_filename_sigs = [
+      #'MG5_LHEonly_14TeV_pp2hh_HeavyHiggsTHDM_TopYuk_1.0_SlfCoup_0.5',
+      'MG5_LHEonly_14TeV_pp2hh_HeavyHiggsTHDM_TopYuk_1.0_SlfCoup_1.0',
+      'MG5_LHEonly_14TeV_pp2hh_HeavyHiggsTHDM_TopYuk_1.0_SlfCoup_2.0',
+      'MG5_LHEonly_14TeV_pp2hh_HeavyHiggsTHDM_TopYuk_1.0_SlfCoup_2.5',
+      'MG5_LHEonly_14TeV_pp2hh_HeavyHiggsTHDM_TopYuk_1.0_SlfCoup_3.0',
+      'MG5_LHEonly_14TeV_pp2hh_HeavyHiggsTHDM_TopYuk_1.0_SlfCoup_4.0',
+    ] 
   elif fix_SLFCOUP: 
     l_filename_sigs = [
     

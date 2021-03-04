@@ -373,7 +373,7 @@ int main(int argc, char* argv[]) {
   const std::string output_path     = output_dir + "/" + output_filename;
 
   // Uncomment to enable multithreading
-  //ROOT::EnableImplicitMT();
+  ROOT::EnableImplicitMT();
 
   // Importing Input File
   RDataFrame frame("Delphes", file_path);

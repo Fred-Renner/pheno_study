@@ -36,7 +36,8 @@ from samples import *
 from cuts import *
 from variables import *
 
-SIGPATH = '/data/atlas/atlasdata/DiHiggsPheno/ntuples/150719/merged_nn_score_ntuples'
+#SIGPATH = '/lustre/fs22/group/atlas/arelycg/Pheno/Oxford_samples/ntuples/150719/merged_nn_score_ntuples'
+SIGPATH = '/afs/ifh.de/user/f/freder/apps/analysis/fig_5'
 
 doBTagWeight = True
 
@@ -136,21 +137,27 @@ def calc_selections(var, add_cuts, lumi, save_name, sig_reg, annotate_text='', t
     'loose_noGenFilt_signal_hh_TopYuk_1.0_SlfCoup_2.0',
     'loose_noGenFilt_signal_hh_TopYuk_1.0_SlfCoup_3.0',
     'loose_noGenFilt_signal_hh_TopYuk_1.0_SlfCoup_5.0',
-    #'loose_noGenFilt_signal_hh_TopYuk_1.0_SlfCoup_10.0',
+    #'loose_noGenFilt_signal_hh_TopYuk_1.0_SlfCoup_m5.0_100k',
   ]
 
   # obtain cut to apply (string)
   normCutsAfter, l_cuts = configure_cuts(sig_reg) 
+
   
   # get dictionary defining sample properties
   d_samp = configure_samples()
+  #print(d_samp)
   
   # get dictionary of histogram configurations
-  d_vars = configure_vars()
+  d_vars = configure_vars('int')
+  #print(d_vars)
+
   # obtain the number of bins with their xmin and xmax
   hNbins = d_vars[var]['hXNbins']
   hXmin  = d_vars[var]['hXmin']
   hXmax  = d_vars[var]['hXmax']
+
+ # print(hNbins)
 
   variable_bin = False
   hXarray = []
@@ -237,7 +244,8 @@ def calc_selections(var, add_cuts, lumi, save_name, sig_reg, annotate_text='', t
     Nsignal_count += 1
     l_sig.append(samp) 
   leg = mk_leg(0.75, 0.40, 0.92, 0.80, sig_reg, l_samp, d_samp, nTotBkg, d_hists, d_yield, d_yieldErr, d_nRaw, sampSet_type='bkg', txt_size=0.05)
-   
+  #c= ROOT.TCanvas();
+  #d_hsig[0].ROOT.Draw('hist same')
   #============================================================
   # proceed to plot
   plot_selections(var, d_hsig, leg, save_name, sig_reg, nTotBkg, l_sig, cutsAfter, l_cuts, annotate_text, variable_bin, IsLogY)
@@ -258,7 +266,7 @@ def plot_selections(var, d_hsig, leg, save_name, sig_reg, nTotBkg, l_sig, cutsAf
   gpRight = 0.05
   
   
-  d_vars = configure_vars()
+  d_vars = configure_vars('int')
   
   #==========================================================
   # build canvas
@@ -404,6 +412,10 @@ def tree_get_th1f(f, hname, var, cutsAfter='', Nbins=100, xmin=0, xmax=100, lumi
   print('Ngen: {0}'.format(Ngen))
    
   cut_after = '({0}) * ({1}) * ({2}) * ({3}) / ({4})'.format(cutsAfter, xsec, lumi, my_weight, float(Ngen)) 
+
+
+
+ 
   #cut_after = '( ({0}) * ({1}) ) * Event.Weight * {2}'.format(cutsAfter, lumi, my_weight) 
   # ========================================================= 
   t.Project( hname + '_hist', var, cut_after )
@@ -415,6 +427,12 @@ def tree_get_th1f(f, hname, var, cutsAfter='', Nbins=100, xmin=0, xmax=100, lumi
   nRaw      = h_AfterCut.GetEntries()
   h_intgl_lower = TH1D(hname + '_intgl_lower', "", Nbins, xmin, xmax)
   h_intgl_upper = TH1D(hname + '_intgl_upper', "", Nbins, xmin, xmax)
+
+  print ('-++++++++')
+  print ( nYieldErr )
+  print ( nYield )
+  print ( nRaw )
+  print ('++++++++')
  
   if normalise_unity:
     h_AfterCut.Scale(1./nYield)

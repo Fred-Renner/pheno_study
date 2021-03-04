@@ -28,7 +28,8 @@ def get_sample_paths(dir = ''):
   #TOPPATH = '/home/jesseliu/pheno/fcc/data/samples/14TeV/2019mar18/all_merged_delphes/ntuples_2019mar25'
   #TOPPATH = '/data/atlas/atlasdata/DiHiggsPheno/ntuples'
   #TOPPATH = '/data/atlas/atlasdata/beresford/jrf/hh4b_pheno/lydia-dev/pheno_study/analysis/outputs/150719'
-  TOPPATH = '/data/atlas/atlasdata/DiHiggsPheno/ntuples/'
+  TOPPATH = '/lustre/fs22/group/atlas/arelycg/Pheno/Oxford_samples/ntuples/150719/merged_nn_score_ntuples'
+  #TOPPATH = '/afs/ifh.de/user/f/freder/apps/analysis/fig_5'
 
   # Path to ntuples 
   bkg_path  = TOPPATH + '/' + dir
